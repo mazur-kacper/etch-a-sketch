@@ -14,7 +14,17 @@ for (let i = 0; i < 256; i++) {
 const gridSizeButton = document.querySelector("#grid-size-btn");
 
 gridSizeButton.addEventListener("click", (event) => {
-  let size = prompt("How many squares per side should there be?");
+  let size;
+
+  while (true) {
+    size = prompt("How many squares per side should there be?");
+    if (size < 1 || size > 100) {
+      alert("Incorrect input. The number must be between 1 and 100.");
+      continue;
+    }
+    break;
+  }
+
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
