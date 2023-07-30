@@ -1,13 +1,19 @@
 const container = document.querySelector("#container");
 
+function colorGen() {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  return "rgb(" + r + "," + g + "," + b + ")";
+}
+
 for (let i = 0; i < 256; i++) {
   const squareDiv = document.createElement("div");
   container.appendChild(squareDiv);
   squareDiv.style.cssText =
     "background-color: white; height: 30px; width: 30px; ";
   squareDiv.addEventListener("mouseover", (event) => {
-    squareDiv.style.cssText =
-      "background-color: black; height: 30px; width: 30px; ";
+    squareDiv.style.cssText = `background-color: ${colorGen()}; height: 30px; width: 30px; `;
   });
 }
 
@@ -36,7 +42,7 @@ gridSizeButton.addEventListener("click", (event) => {
       480 / size
     }px; width: ${480 / size}px; `;
     squareDiv.addEventListener("mouseover", (event) => {
-      squareDiv.style.cssText = `background-color: black; height: ${
+      squareDiv.style.cssText = `background-color: ${colorGen()}; height: ${
         480 / size
       }px; width: ${480 / size}px; `;
     });
